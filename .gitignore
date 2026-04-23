@@ -1,0 +1,26 @@
+# Build outputs
+Win32/
+Win64/
+Debug/
+Release/
+
+# Compiled units
+*.dcu
+*.exe
+*.dll
+*.bpl
+*.dcp
+
+# Delphi IDE junk
+*.identcache
+*.local
+*.stat
+*.dres
+*.vlb
+*.tvsconfig
+*.rc
+
+# Backup/history
+__history/
+__recovery/
+*.~*
