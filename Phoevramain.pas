@@ -468,7 +468,7 @@ begin
   S      :=       tbSustain.Position / 100.0;
   R      := Round(tbRelease.Position / 100.0 * SAMPLE_RATE);
   i      := ASampleIdx;
-  RStart := ATotalSamples - R;
+  RStart := Max(A + D, ATotalSamples - R);
 
   if i < A then
   begin
