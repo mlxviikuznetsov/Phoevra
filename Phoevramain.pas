@@ -633,7 +633,7 @@ begin
     FMidiLoaded := True;
     BuildNoteList;
     RenderToBuffer;
-    pbWave.Invalidate;
+    InvalidateRect(pbWave.Parent.Handle, nil, False);
     lblStatus.Caption := Format('Ready  |  notes: %d  |  %.2f s',
         [FNotes.Count, FPCMLength / SAMPLE_RATE]);
   end
@@ -694,7 +694,7 @@ begin
   lblStatus.Caption := 'Rendering...';
   Application.ProcessMessages;
   RenderToBuffer;
-  pbWave.Invalidate;
+  InvalidateRect(pbWave.Parent.Handle, nil, False);
   lblStatus.Caption := Format('Ready  |  %.2f s', [FPCMLength / SAMPLE_RATE]);
 end;
 
@@ -717,7 +717,7 @@ begin
                       Round(X / pbWave.Width * (FPCMLength - 1))));
   FPlaybackSample := FSeekSample;
   if FWaveOut <> 0 then btnPlayClick(nil);  // restart from new position if playing
-  pbWave.Invalidate;
+  InvalidateRect(pbWave.Parent.Handle, nil, False);
 end;
 
 // Polls waveOut every 50 ms and updates the playhead position
@@ -731,7 +731,7 @@ begin
     tmPlayback.Enabled := False;
     FPlaybackSample    := 0;
     lblStatus.Caption  := '■ Ready';
-    pbWave.Invalidate;
+    InvalidateRect(pbWave.Parent.Handle, nil, False);
     Exit;
   end;
 
@@ -749,7 +749,7 @@ begin
   else
     FPlaybackSample := CurSample;
 
-  pbWave.Invalidate;
+  InvalidateRect(pbWave.Parent.Handle, nil, False);
 end;
 
 procedure TFormMain.StopPlayback;
@@ -925,6 +925,8 @@ begin
   FPlaybackSample := 0;
   FMidiLoaded     := False;
   FWaveBitmap     := TBitmap.Create;
+
+  pbWave.ControlStyle := pbWave.ControlStyle + [csOpaque];
 
   tbChange(nil);
   mLog.Lines.Add('Phoevra ready. Load a MIDI file.');
