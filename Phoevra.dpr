@@ -1,7 +1,7 @@
 program Phoevra;
 uses
   Vcl.Forms,
-  Phoevramain in 'Phoevramain.pas' {FormMain},
+  PhoevraMain in 'PhoevraMain.pas' {FormMain},
   Vcl.Themes,
   Vcl.Styles;
 
