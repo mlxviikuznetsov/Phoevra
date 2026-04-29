@@ -1,11 +1,14 @@
 program Phoevra;
+
 uses
   Vcl.Forms,
-  PhoevraMain in 'PhoevraMain.pas' {FormMain},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  PhoevraMain in 'PhoevraMain.pas' {FormMain},
+  PhoevraTypes in 'PhoevraTypes.pas';
 
 {$R *.res}
+
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;

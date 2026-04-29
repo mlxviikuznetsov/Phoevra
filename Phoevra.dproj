@@ -117,6 +117,7 @@
         <DCCReference Include="PhoevraMain.pas">
             <Form>FormMain</Form>
         </DCCReference>
+        <DCCReference Include="PhoevraTypes.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
