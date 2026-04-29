@@ -21,7 +21,7 @@ Phoevra is a Delphi VCL-based software synthesizer that processes Standard MIDI 
 ## Gallery
 
 <p align="center">
-  <img width="700" src="assets/screenshot00.png"/>
+  <img width="700" src="assets/screenshot01.jpg"/>
 </p>
 
 <p align="center">
