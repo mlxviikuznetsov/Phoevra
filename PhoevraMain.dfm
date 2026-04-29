@@ -359,7 +359,7 @@ object FormMain: TFormMain
       Width = 210
       Height = 28
       Max = 100
-      Position = 70
+      Position = 20
       TabOrder = 2
       TickStyle = tsNone
       OnChange = tbChange
