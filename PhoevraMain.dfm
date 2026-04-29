@@ -1,14 +1,12 @@
 object FormMain: TFormMain
-  Left = 0
-  Top = 0
+  Left = 662
+  Top = 196
   Caption = 'Phoevra'
-  ClientHeight = 526
-  ClientWidth = 643
+  ClientHeight = 666
+  ClientWidth = 666
   Color = clWindow
-  Constraints.MaxHeight = 700
-  Constraints.MaxWidth = 655
-  Constraints.MinHeight = 560
-  Constraints.MinWidth = 655
+  Constraints.MinHeight = 666
+  Constraints.MinWidth = 666
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -149,36 +147,42 @@ object FormMain: TFormMain
     0001000000000000000000000000000000000000000000000000000000000000
     0000000000000000000000000000000000000000000000000000800000018000
     0001C0000003E0000007F000000FF800001FFC00003FFE00007FFF8001FF}
+  KeyPreview = True
+  Position = poDesigned
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
   TextHeight = 15
   object pbWave: TPaintBox
     AlignWithMargins = True
     Left = 3
-    Top = 185
-    Width = 637
-    Height = 138
+    Top = 204
+    Width = 660
+    Height = 130
     Align = alTop
     Color = 1710618
-    Constraints.MaxHeight = 700
     Constraints.MinHeight = 80
     ParentColor = False
     OnMouseDown = pbWaveMouseDown
     OnPaint = pbWavePaint
-    ExplicitLeft = 8
+    ExplicitTop = 233
+    ExplicitWidth = 638
   end
   object pnlTop: TPanel
     Left = 0
     Top = 0
-    Width = 643
-    Height = 56
+    Width = 666
+    Height = 48
     Align = alTop
-    BevelOuter = bvNone
+    BevelEdges = [beTop, beBottom]
+    DoubleBuffered = False
+    ParentDoubleBuffered = False
     TabOrder = 0
-    ExplicitWidth = 637
+    ExplicitWidth = 660
     object lblFile: TLabel
-      Left = 453
-      Top = 9
+      Left = 476
+      Top = 8
       Width = 85
       Height = 15
       Caption = '(no file chosen)'
@@ -190,8 +194,8 @@ object FormMain: TFormMain
       ParentFont = False
     end
     object lblStatus: TLabel
-      Left = 444
-      Top = 30
+      Left = 476
+      Top = 25
       Width = 3
       Height = 15
       Font.Charset = DEFAULT_CHARSET
@@ -203,50 +207,65 @@ object FormMain: TFormMain
     end
     object btnOpenMidi: TButton
       Left = 8
-      Top = 12
-      Width = 120
-      Height = 30
+      Top = 10
+      Width = 100
+      Height = 28
       Caption = 'Open MIDI'
       TabOrder = 0
       OnClick = btnOpenMidiClick
     end
     object btnPlay: TButton
-      Left = 138
-      Top = 12
-      Width = 80
-      Height = 30
+      Left = 116
+      Top = 10
+      Width = 72
+      Height = 28
       Caption = #9654' Play'
       TabOrder = 1
       OnClick = btnPlayClick
     end
     object btnStop: TButton
-      Left = 224
-      Top = 12
-      Width = 80
-      Height = 30
+      Left = 196
+      Top = 10
+      Width = 72
+      Height = 28
       Caption = #9632' Stop'
       TabOrder = 2
       OnClick = btnStopClick
     end
     object btnExportWAV: TButton
-      Left = 312
-      Top = 12
-      Width = 120
-      Height = 30
+      Left = 276
+      Top = 10
+      Width = 100
+      Height = 28
       Caption = 'Export WAV'
       TabOrder = 3
       OnClick = btnExportWAVClick
     end
+    object btnLive: TButton
+      Left = 382
+      Top = 10
+      Width = 80
+      Height = 28
+      Caption = #9673' Live'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      OnClick = btnLiveClick
+    end
   end
-  object pnlADSR: TPanel
+  object pnlSettings: TPanel
     Left = 0
-    Top = 56
-    Width = 643
-    Height = 126
+    Top = 48
+    Width = 666
+    Height = 153
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitWidth = 637
+    ExplicitWidth = 660
     object lblADSRTitle: TLabel
       Left = 8
       Top = 6
@@ -262,84 +281,60 @@ object FormMain: TFormMain
     end
     object lblA: TLabel
       Left = 8
-      Top = 30
+      Top = 28
       Width = 37
       Height = 15
       Caption = 'Attack:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
     end
     object lblAVal: TLabel
-      Left = 270
-      Top = 30
+      Left = 280
+      Top = 28
       Width = 3
       Height = 15
     end
     object lblD: TLabel
       Left = 8
-      Top = 68
+      Top = 60
       Width = 35
       Height = 15
       Caption = 'Decay:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
     end
     object lblDVal: TLabel
-      Left = 270
-      Top = 68
+      Left = 280
+      Top = 60
       Width = 3
       Height = 15
     end
     object lblS: TLabel
       Left = 340
-      Top = 30
+      Top = 28
       Width = 41
       Height = 15
       Caption = 'Sustain:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
     end
     object lblSVal: TLabel
-      Left = 602
-      Top = 30
+      Left = 610
+      Top = 28
       Width = 3
       Height = 15
     end
     object lblR: TLabel
       Left = 340
-      Top = 68
+      Top = 60
       Width = 42
       Height = 15
       Caption = 'Release:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
     end
     object lblRVal: TLabel
-      Left = 602
-      Top = 68
+      Left = 610
+      Top = 60
       Width = 3
       Height = 15
     end
     object tbAttack: TTrackBar
-      Left = 74
-      Top = 30
-      Width = 190
+      Left = 64
+      Top = 26
+      Width = 210
       Height = 28
       Max = 200
       Position = 5
@@ -348,9 +343,9 @@ object FormMain: TFormMain
       OnChange = tbChange
     end
     object tbDecay: TTrackBar
-      Left = 74
-      Top = 64
-      Width = 190
+      Left = 64
+      Top = 58
+      Width = 210
       Height = 28
       Max = 200
       Position = 10
@@ -359,9 +354,9 @@ object FormMain: TFormMain
       OnChange = tbChange
     end
     object tbSustain: TTrackBar
-      Left = 406
-      Top = 30
-      Width = 190
+      Left = 392
+      Top = 26
+      Width = 210
       Height = 28
       Max = 100
       Position = 70
@@ -370,9 +365,9 @@ object FormMain: TFormMain
       OnChange = tbChange
     end
     object tbRelease: TTrackBar
-      Left = 406
-      Top = 68
-      Width = 190
+      Left = 392
+      Top = 58
+      Width = 210
       Height = 28
       Max = 200
       Position = 30
@@ -380,36 +375,109 @@ object FormMain: TFormMain
       TickStyle = tsNone
       OnChange = tbChange
     end
-    object btnApplyADSR: TButton
-      Left = 8
-      Top = 92
-      Width = 164
-      Height = 28
-      Caption = 'Apply ADSR'
+    object rgShape: TRadioGroup
+      Left = 273
+      Top = 90
+      Width = 340
+      Height = 51
+      Caption = 'Wave shape'
+      Columns = 4
+      ItemIndex = 0
+      Items.Strings = (
+        'Sine'
+        'Square'
+        'Sawtooth'
+        'Triangle')
       TabOrder = 4
-      OnClick = btnApplyADSRClick
+      OnClick = rgShapeClick
+    end
+    object pnlSettingsButtons: TPanel
+      Left = 8
+      Top = 85
+      Width = 248
+      Height = 70
+      BevelEdges = [beLeft, beTop, beRight]
+      BevelOuter = bvLowered
+      TabOrder = 5
+      object btnApplyADSR: TButton
+        Left = 11
+        Top = 39
+        Width = 226
+        Height = 26
+        Caption = 'Apply && Render'
+        TabOrder = 0
+        OnClick = btnApplyADSRClick
+      end
+      object btnSavePreset: TButton
+        Left = 11
+        Top = 9
+        Width = 110
+        Height = 26
+        Caption = 'Save Preset...'
+        TabOrder = 1
+        OnClick = btnSavePresetClick
+      end
+      object btnLoadPreset: TButton
+        Left = 127
+        Top = 9
+        Width = 110
+        Height = 26
+        Caption = 'Load Preset...'
+        TabOrder = 2
+        OnClick = btnLoadPresetClick
+      end
     end
   end
   object mLog: TMemo
     AlignWithMargins = True
     Left = 3
-    Top = 329
-    Width = 637
-    Height = 199
+    Top = 340
+    Width = 660
+    Height = 294
     Align = alTop
     Anchors = [akLeft, akTop, akRight, akBottom]
     Color = clNavy
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clHighlightText
-    Font.Height = -15
+    Font.Height = -13
     Font.Name = 'Courier New'
     Font.Style = []
     ParentFont = False
     ReadOnly = True
     ScrollBars = ssVertical
     TabOrder = 2
-    ExplicitWidth = 631
-    ExplicitHeight = 186
+    ExplicitWidth = 654
+    ExplicitHeight = 281
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Top = 637
+    Width = 666
+    Height = 26
+    Align = alTop
+    Anchors = [akLeft, akRight, akBottom]
+    BevelEdges = [beTop, beBottom]
+    BevelOuter = bvNone
+    TabOrder = 3
+    OnClick = btnSaveLogClick
+    ExplicitTop = 624
+    ExplicitWidth = 660
+    object btnSaveLog: TButton
+      AlignWithMargins = True
+      Left = 544
+      Top = 0
+      Width = 115
+      Height = 26
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 7
+      Margins.Bottom = 0
+      Align = alRight
+      Caption = 'Save Log...'
+      TabOrder = 0
+      OnClick = btnSaveLogClick
+      ExplicitLeft = 538
+    end
   end
   object tmPlayback: TTimer
     Enabled = False
@@ -417,10 +485,10 @@ object FormMain: TFormMain
     OnTimer = tmPlaybackTimer
   end
   object dlgOpen: TOpenDialog
-    Filter = 'MIDI files (*.mid;*.midi)|*.mid;*.midi|All files|*.*'
+    Filter = 'MIDI files (*.mid;*.midi)|*.mid;*.midi|ADSR Preset|*.adsr'
   end
   object dlgSave: TSaveDialog
     DefaultExt = 'wav'
-    Filter = 'WAV file (*.wav)|*.wav'
+    Filter = 'WAV file|*.wav|ADSR Preset|*.adsr|Text file|*.txt'
   end
 end
