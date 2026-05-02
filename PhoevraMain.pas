@@ -33,25 +33,25 @@ type
     btnLive       : TButton;
     lblFile       : TLabel;
     lblStatus     : TLabel;
-    pnlSettings: TPanel;
+    pnlSettings   : TPanel;
     lblADSRTitle  : TLabel;
     lblA : TLabel;  tbAttack  : TTrackBar;  lblAVal : TLabel;
     lblD : TLabel;  tbDecay   : TTrackBar;  lblDVal : TLabel;
     lblS : TLabel;  tbSustain : TTrackBar;  lblSVal : TLabel;
     lblR : TLabel;  tbRelease : TTrackBar;  lblRVal : TLabel;
 
-    pbWave        : TPaintBox;
-    tmPlayback    : TTimer;
-    mLog          : TMemo;
-    dlgOpen       : TOpenDialog;
-    dlgSave       : TSaveDialog;
-    rgShape: TRadioGroup;
-    pnlBottom: TPanel;
-    btnSaveLog: TButton;
-    pnlSettingsButtons: TPanel;
-    btnApplyADSR: TButton;
-    btnSavePreset: TButton;
-    btnLoadPreset: TButton;
+    pbWave             : TPaintBox;
+    tmPlayback         : TTimer;
+    mLog               : TMemo;
+    dlgOpen            : TOpenDialog;
+    dlgSave            : TSaveDialog;
+    rgShape            : TRadioGroup;
+    pnlBottom          : TPanel;
+    btnSaveLog         : TButton;
+    pnlSettingsButtons : TPanel;
+    btnApplyADSR       : TButton;
+    btnSavePreset      : TButton;
+    btnLoadPreset      : TButton;
 
     // UI event handlers
     procedure btnOpenMidiClick(Sender: TObject);
