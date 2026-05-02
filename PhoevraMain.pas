@@ -495,7 +495,6 @@ begin
     FreeAndNil(FLiveSynth);
   end;
   FLiveNotes.Clear;
-  btnLive.Caption   := '◉ Live';
   if FPCMLength = 0 then
     lblStatus.Caption := ''
   else
@@ -779,7 +778,6 @@ begin
     PIntValue(@FSusPos), PIntValue(@FRelPos));
   FLiveSynth.Start;
 
-  btnLive.Caption   := 'Stop Live';
   lblStatus.Caption := '◉ LIVE';
   Log('Live mode on. Z S X D C V G B H N J M = C4..B4');
   Log('    Q 2 W 3 E R 5 T 6 Y 7 U I 9 O 0 P = C5..E6');
